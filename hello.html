@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Text Overlay</title>
+<style>
+    .container_info {
+        display: flex;
+        flex-wrap: wrap; /* Ensure images wrap to the next line if they exceed container width */
+        justify-content: flex-start; /* Align images to the start of the container */
+    }
+    
+    .image {
+        display: block;
+        width: calc(50% - 10px); /* Adjusted width to include space between images */
+        height: auto;
+        margin-bottom: 20px; /* Add margin between rows of images */
+        margin-right: 20px; /* Add margin between images */
+    }
+    
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Overlay width matches the image width */
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+        color: white;
+        text-align: center;
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s ease;
+        pointer-events: none; /* Ensure that the overlay does not interfere with hover events on the image */
+    }
+    
+    .container_info:hover .overlay {
+        opacity: 1; /* Show overlay on hover */
+    }
+    
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
+
+<div class="container_info">
+    <img src="https://via.placeholder.com/300" alt="Placeholder Image" class="image">
+    <div class="overlay">
+        <div class="text">Text Overlay</div>
+    </div>
+    
+    <img src="https://via.placeholder.com/300" alt="Placeholder Image" class="image">
+    <div class="overlay">
+        <div class="text">Text Overlay</div>
+    </div>
+</div>
+
+</body>
+</html>
